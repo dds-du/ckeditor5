@@ -39,6 +39,9 @@ import Table from '@ckeditor/ckeditor5-table/src/table';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
 import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation';
 import CloudServices from '@ckeditor/ckeditor5-cloud-services/src/cloudservices';
+import PageBreak from '@ckeditor/ckeditor5-page-break/src/pagebreak';
+import Base64UploadAdapter from '@ckeditor/ckeditor5-upload/src/adapters/base64uploadadapter';
+import Pagination from '@ckeditor/ckeditor5-pagination/src/pagination';
 
 export default class DecoupledEditor extends DecoupledEditorBase {}
 
@@ -76,7 +79,10 @@ DecoupledEditor.builtinPlugins = [
 	PasteFromOffice,
 	Table,
 	TableToolbar,
-	TextTransformation
+	TextTransformation,
+	Base64UploadAdapter,
+	// Pagination,
+	PageBreak
 ];
 
 // Editor configuration.
@@ -110,7 +116,12 @@ DecoupledEditor.defaultConfig = {
 			'mediaEmbed',
 			'|',
 			'undo',
-			'redo'
+			'redo',
+			'|',
+			'pageBreak',
+			// 'previousPage',
+   //          'nextPage',
+   //          'pageNavigation'
 		]
 	},
 	image: {
@@ -127,6 +138,18 @@ DecoupledEditor.defaultConfig = {
 			'imageTextAlternative'
 		]
 	},
+	// pagination: {
+ //        // A4
+ //        pageWidth: '21cm',
+ //        pageHeight: '29.7cm',
+
+ //        pageMargins: {
+ //            top: '20mm',
+ //            bottom: '20mm',
+ //            right: '12mm',
+ //            left: '12mm'
+ //        }
+ //    },
 	table: {
 		contentToolbar: [
 			'tableColumn',
